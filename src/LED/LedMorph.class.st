@@ -36,10 +36,32 @@ Class {
 	#category : #LED
 }
 
-{ #category : #'new-morph participation' }
-LedMorph class >> includeInNewMorphMenu [
+{ #category : #example }
+LedMorph class >> example1 [
+	<sampleInstance>
+	^  LedMorph new  
+				chars: 10; 
+				string:'   I must get a life';
+				flash: true;
+				scrollLoop: true
+]
 
-	^false
+{ #category : #example }
+LedMorph class >> example2 [
+	<sampleInstance>
+	^  LedMorph new string:'0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+]
+
+{ #category : #example }
+LedMorph class >> open1 [
+	<script>
+	^  self example1 openInWorld
+]
+
+{ #category : #example }
+LedMorph class >> open2 [
+	<script>
+	^  self example2 openInWorld
 ]
 
 { #category : #accessing }
