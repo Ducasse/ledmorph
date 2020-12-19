@@ -3,10 +3,9 @@ char 36 is SPACE
 "
 Class {
 	#name : #LedCharacterMorph,
-	#superclass : #Morph,
+	#superclass : #LedElementMorph,
 	#instVars : [
-		'char',
-		'highlighted'
+		'char'
 	],
 	#classVars : [
 		'BSegments',
@@ -157,12 +156,6 @@ LedCharacterMorph >> char: aCharacter [
 	char >= 0 & (char <= 35) ifFalse: [char := 36]
 ]
 
-{ #category : #initialization }
-LedCharacterMorph >> defaultColor [
-	"answer the default color/fill style for the receiver"
-	^ Color green
-]
-
 { #category : #drawing }
 LedCharacterMorph >> drawOn: aCanvas [ 
 	| foregroundColor backgroundColor thickness hThickness vThickness hOffset vOffset bOrigin i |
@@ -199,25 +192,6 @@ LedCharacterMorph >> drawOn: aCanvas [
 				color: (isLit
 						ifTrue: [foregroundColor]
 						ifFalse: [Color transparent])]
-]
-
-{ #category : #drawing }
-LedCharacterMorph >> drawOnFills: aRectangle [
-
-	^ true
-]
-
-{ #category : #accessing }
-LedCharacterMorph >> highlighted [
-
-	^ highlighted
-]
-
-{ #category : #accessing }
-LedCharacterMorph >> highlighted: aBoolean [
-
-	highlighted := aBoolean.
-	self changed.
 ]
 
 { #category : #initialization }

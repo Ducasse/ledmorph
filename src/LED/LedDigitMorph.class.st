@@ -9,10 +9,9 @@ LedDigitMorph new
 "
 Class {
 	#name : #LedDigitMorph,
-	#superclass : #Morph,
+	#superclass : #LedElementMorph,
 	#instVars : [
-		'digit',
-		'highlighted'
+		'digit'
 	],
 	#classVars : [
 		'HSegmentOrigins',
@@ -53,12 +52,6 @@ LedDigitMorph class >> initialize [
 		{false. false. false. false}}.
 ]
 
-{ #category : #initialization }
-LedDigitMorph >> defaultColor [
-
-	^ Color green
-]
-
 { #category : #accessing }
 LedDigitMorph >> digit [
 
@@ -68,7 +61,7 @@ LedDigitMorph >> digit [
 { #category : #accessing }
 LedDigitMorph >> digit: anInteger [
 
-	digit := anInteger \\ 10	"make sure it stays between 0 and 9"
+	digit := anInteger \\ 10	
 ]
 
 { #category : #drawing }
@@ -102,29 +95,9 @@ LedDigitMorph >> drawOn: aCanvas [
 
 ]
 
-{ #category : #drawing }
-LedDigitMorph >> drawOnFills: aRectangle [
-
-	^ true
-]
-
-{ #category : #accessing }
-LedDigitMorph >> highlighted [
-
-	^ highlighted
-]
-
-{ #category : #accessing }
-LedDigitMorph >> highlighted: aBoolean [
-
-	highlighted := aBoolean.
-	self changed.
-]
-
 { #category : #initialization }
 LedDigitMorph >> initialize [
 	"initialize the state of the receiver"
 	super initialize.
-	highlighted := false.
 	digit := 0 
 ]
